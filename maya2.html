@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maya Grills & Chops</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maya: "#ff5a0a",
+            dark: "#11100f",
+            cream: "#faf7f2"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-cream text-dark">
+
+  <!-- NAVBAR -->
+  <nav class="bg-dark text-white px-6 py-5">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+      <a href="#" class="font-black text-2xl">
+        <img class="w-30 h-20" src="maya image.png" alt="">
+      </a>
+
+      <div class="hidden md:flex gap-8 font-semibold">
+        <a href="#home" class="hover:text-maya">Home</a>
+        <a href="#menu" class="hover:text-maya">Menu</a>
+        <a href="#about" class="hover:text-maya">About</a>
+        <a href="#contact" class="hover:text-maya">Contact</a>
+      </div>
+
+      <a href="#menu"
+        class="bg-maya px-5 py-3 rounded-full font-bold hover:bg-orange-600">
+        Order Now
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home"
+    class="bg-dark text-white px-6 py-20 md:py-32">
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="text-maya font-bold tracking-widest mb-5">
+          FRESH • TASTY • ALWAYS
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-black leading-tight">
+          MAYA
+          <span class="text-maya">GRILLS & CHOPS</span>
+        </h1>
+
+        <p class="text-gray-300 text-lg mt-6 leading-8">
+          Sizzling grills, juicy chops, and delicious meals
+          made with fresh ingredients. Good food, great vibes!
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-8">
+          <a href="#menu"
+            class="bg-maya px-7 py-4 rounded-full font-bold hover:bg-orange-600">
+            View Our Menu →
+          </a>
+
+          <a href="#about"
+            class="border border-white px-7 py-4 rounded-full font-bold hover:bg-white hover:text-dark">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80"
+          alt="Delicious food"
+          class="w-full h-80 md:h-96 object-cover rounded-3xl shadow-2xl">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="px-6 py-20">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-12">
+        <p class="text-maya font-bold tracking-widest">OUR MENU</p>
+
+        <h2 class="text-3xl md:text-4xl font-black mt-3">
+          Delicious Choices for Every Craving
+        </h2>
+
+        <p class="text-gray-600 mt-4">
+          Discover your favourite meals at Maya.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+        <!-- FOOD 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-2 transition">
+          <img
+            src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=80"
+            alt="Grilled chicken"
+            class="w-full h-52 object-cover">
+
+          <div class="p-5">
+            <h3 class="font-bold text-xl">Grilled Chicken</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              Tender chicken grilled to perfection.
+            </p>
+
+            <p class="text-maya font-black text-xl mt-4">₦6,500</p>
+
+            <button onclick="orderFood('Grilled Chicken', 6500)"
+              class="bg-maya text-white w-full py-3 rounded-full mt-4 font-bold hover:bg-orange-600">
+              Order Now
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOD 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-2 transition">
+          <img
+            src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&w=700&q=80"
+            alt="Pork chops"
+            class="w-full h-52 object-cover">
+
+          <div class="p-5">
+            <h3 class="font-bold text-xl">Pork Chops</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              Juicy chops with delicious spices.
+            </p>
+
+            <p class="text-maya font-black text-xl mt-4">₦7,500</p>
+
+            <button onclick="orderFood('Pork Chops', 7500)"
+              class="bg-maya text-white w-full py-3 rounded-full mt-4 font-bold hover:bg-orange-600">
+              Order Now
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOD 3 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-2 transition">
+          <img
+            src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=700&q=80"
+            alt="Grilled beef suya"
+            class="w-full h-52 object-cover">
+
+          <div class="p-5">
+            <h3 class="font-bold text-xl">Beef Suya</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              Smoky grilled beef with bold spices.
+            </p>
+
+            <p class="text-maya font-black text-xl mt-4">₦5,000</p>
+
+            <button onclick="orderFood('Beef Suya', 5000)"
+              class="bg-maya text-white w-full py-3 rounded-full mt-4 font-bold hover:bg-orange-600">
+              Order Now
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOD 4 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:-translate-y-2 transition">
+          <img
+            src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"
+            alt="French fries"
+            class="w-full h-52 object-cover">
+
+          <div class="p-5">
+            <h3 class="font-bold text-xl">French Fries</h3>
+            <p class="text-gray-500 text-sm mt-2">
+              Crispy, golden and delicious.
+            </p>
+
+            <p class="text-maya font-black text-xl mt-4">₦2,000</p>
+
+            <button onclick="orderFood('French Fries', 2000)"
+              class="bg-maya text-white w-full py-3 rounded-full mt-4 font-bold hover:bg-orange-600">
+              Order Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="bg-white px-6 py-20">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <p class="text-maya font-bold tracking-widest">ABOUT MAYA</p>
+
+      <h2 class="text-3xl md:text-4xl font-black mt-3">
+        Our Passion Is Great Food
+      </h2>
+
+      <p class="text-gray-600 max-w-2xl mx-auto mt-6 leading-8">
+        At Maya Grills & Chops, we believe good food brings
+        people together. We serve tasty meals prepared with
+        care, fresh ingredients and bold flavours.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-10">
+
+        <div class="bg-cream rounded-2xl p-7">
+          <div class="text-4xl">🥗</div>
+          <h3 class="font-bold text-xl mt-4">Fresh Ingredients</h3>
+          <p class="text-gray-500 mt-2">Freshness in every meal.</p>
+        </div>
+
+        <div class="bg-cream rounded-2xl p-7">
+          <div class="text-4xl">👨‍🍳</div>
+          <h3 class="font-bold text-xl mt-4">Quality Food</h3>
+          <p class="text-gray-500 mt-2">Prepared with care.</p>
+        </div>
+
+        <div class="bg-cream rounded-2xl p-7">
+          <div class="text-4xl">🛵</div>
+          <h3 class="font-bold text-xl mt-4">Fast Delivery</h3>
+          <p class="text-gray-500 mt-2">Easy and convenient ordering.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="bg-dark text-white px-6 py-16">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <p class="text-maya font-bold tracking-widest">READY TO EAT?</p>
+
+      <h2 class="text-3xl md:text-4xl font-black mt-3">
+        Place Your Order Today!
+      </h2>
+
+      <p class="text-gray-300 mt-4">
+        Craving something delicious? Maya is ready to serve you.
+      </p>
+
+      <a href="https://wa.me/07038833291"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-maya px-8 py-4 rounded-full mt-7 font-bold hover:bg-orange-600">
+        Order on WhatsApp ↗
+      </a>
+
+      <p class="mt-4 text-gray-400">
+        Phone: +234 07038833291
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white text-center px-6 py-8">
+
+    <h2 class="text-2xl font-black text-maya">MAYA</h2>
+    <p class="text-sm font-bold tracking-widest">GRILLS & CHOPS</p>
+
+    <div class="flex justify-center gap-6 mt-5 text-sm">
+      <a href="#home" class="hover:text-maya">Home</a>
+      <a href="#menu" class="hover:text-maya">Menu</a>
+      <a href="#about" class="hover:text-maya">About</a>
+      <a href="#contact" class="hover:text-maya">Contact</a>
+    </div>
+
+    <p class="text-gray-500 text-sm mt-6">
+      © <span id="year"></span> Maya Grills & Chops. All rights reserved.
+    </p>
+
+  </footer>
+
+  <!-- ORDER FUNCTION -->
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    function orderFood(foodName, price) {
+      const message =
+        `Hello Maya Grills & Chops! I want to order ${foodName} for ₦${price.toLocaleString("en-NG")}.`;
+
+      // Replace this sample number with your actual WhatsApp number.
+      const phoneNumber = "2348012345678";
+
+      window.open(
+        `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+  </script>
+
+</body>
+</html>
+
+</body>
+</html>

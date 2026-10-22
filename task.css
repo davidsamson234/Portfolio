@@ -1,0 +1,53 @@
+.ten{
+    background-color: blue;
+    object-fit: cover;
+}
+
+.den{
+    background-color: aqua;
+    text-align: center;
+}
+
+.new{
+    background-color: aqua;
+    width: 30%;
+    margin-left: 40%;
+    margin-top: 10%;
+    
+}
+
+.ten1{
+    
+    padding-left: 45px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin-left: 60px;
+    width: 200px;
+  
+}
+
+.den1{
+    font-size: 30px;
+}
+
+.den2{
+    padding-bottom: 30px;
+    margin-top: 10px;
+}
+
+.den3{
+    padding: 7px;
+    margin-bottom: 30px;
+    background-color: blue;
+    border-radius: 40px;
+    width: 120px;
+    margin-left: 135px;
+    margin-top: 10px;
+    border-color: blue;
+}
+
+.good{
+    text-align: center;
+    font-size: 30px;
+    top: 100px;
+}

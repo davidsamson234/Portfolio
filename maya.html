@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAYA | Fresh Food & Good Taste</title>
+  <meta name="description" content="Order delicious meals from Maya. Fresh food, great taste, delivered with love.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maya: '#F97316',
+            cream: '#FFF9F2',
+            ink: '#241B16'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; }
+    .food-card { transition: transform .25s, box-shadow .25s; }
+    .food-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #241b1612;
+    }
+  </style>
+</head>
+<body class="bg-cream text-ink">
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-orange-100">
+    <nav class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="#" class="text-3xl font-black tracking-tight">
+        <img class="w-30 h-20" src="maya image.png" alt="">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#home" class="hover:text-maya">Home</a>
+        <a href="#menu" class="hover:text-maya">Our Menu</a>
+        <a href="#about" class="hover:text-maya">About Us</a>
+        <a href="#contact" class="hover:text-maya">Contact</a>
+      </div>
+
+      <button onclick="showCart()"
+        class="bg-ink text-white rounded-full px-5 py-3 font-semibold hover:bg-maya transition">
+        🛒 Cart (<span id="cart-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="max-w-7xl mx-auto px-5 py-14 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <span class="inline-block bg-orange-100 text-orange-700 rounded-full px-4 py-2 text-sm font-bold mb-6">
+        ✨ GOOD FOOD, GOOD MOOD
+      </span>
+      <h1 class="text-5xl md:text-7xl font-black leading-tight">
+        Taste the joy.<br>
+        <span class="text-maya">Love every bite.</span>
+      </h1>
+      <p class="text-gray-600 text-lg leading-8 mt-6 max-w-lg">
+        Welcome to Maya! Discover delicious meals made with
+        fresh ingredients, bold flavours and a whole lot of love.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="#menu" class="bg-maya text-white rounded-full px-8 py-4 font-bold hover:bg-orange-600 transition">
+          Order Your Food →
+        </a>
+        <a href="#about" class="border border-gray-300 rounded-full px-8 py-4 font-bold hover:bg-white">
+          Discover Maya
+        </a>
+      </div>
+      <div class="flex gap-8 mt-10">
+        <div>
+          <p class="text-2xl font-black">100%</p>
+          <p class="text-sm text-gray-500">Freshly made</p>
+        </div>
+        <div>
+          <p class="text-2xl font-black">4.9 ★</p>
+          <p class="text-sm text-gray-500">Our food promise</p>
+        </div>
+        <div>
+          <p class="text-2xl font-black">Fast</p>
+          <p class="text-sm text-gray-500">Easy ordering</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="absolute inset-5 bg-orange-200 rounded-full blur-3xl opacity-60"></div>
+      <img
+        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+        alt="A delicious, colourful meal"
+        class="relative w-full h-80 md:h-[490px] object-cover rounded-[2rem] shadow-xl"
+      >
+      <div class="absolute bottom-5 left-5 bg-white p-4 rounded-2xl shadow-lg">
+        <p class="font-bold">Made with love ❤️</p>
+        <p class="text-sm text-gray-500">Freshness in every bite</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center mb-10">
+        <p class="text-maya font-bold uppercase tracking-widest text-sm">Our favourites</p>
+        <h2 class="text-4xl md:text-5xl font-black mt-3">Explore Our Menu</h2>
+        <p class="text-gray-500 mt-4">Your next favourite meal is waiting for you.</p>
+      </div>
+
+      <div class="flex justify-center gap-3 flex-wrap mb-10">
+        <button onclick="filterMenu('All')" class="filter-btn bg-ink text-white px-5 py-2 rounded-full">All</button>
+        <button onclick="filterMenu('Rice')" class="filter-btn bg-gray-100 px-5 py-2 rounded-full hover:bg-orange-100">Rice</button>
+        <button onclick="filterMenu('Fast Food')" class="filter-btn bg-gray-100 px-5 py-2 rounded-full hover:bg-orange-100">Fast Food</button>
+        <button onclick="filterMenu('Grills')" class="filter-btn bg-gray-100 px-5 py-2 rounded-full hover:bg-orange-100">Grills</button>
+        <button onclick="filterMenu('Drinks')" class="filter-btn bg-gray-100 px-5 py-2 rounded-full hover:bg-orange-100">Drinks</button>
+      </div>
+
+      <div id="food-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+    </div>
+  </section>
+
+  <!-- PROMO -->
+  <section class="max-w-7xl mx-auto px-5 py-16">
+    <div class="bg-ink text-white rounded-[2rem] p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <p class="text-orange-300 font-bold tracking-widest text-sm">YOUR NEXT MEAL AWAITS</p>
+        <h2 class="text-3xl md:text-4xl font-black mt-3">Good food brings us together.</h2>
+        <p class="text-gray-300 mt-4">Choose your favourites and order with ease.</p>
+      </div>
+      <a href="#menu" class="shrink-0 bg-maya text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600">
+        Explore the Menu →
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-orange-50 py-20">
+    <div class="max-w-5xl mx-auto px-5 text-center">
+      <p class="text-maya font-bold tracking-widest text-sm">THE MAYA EXPERIENCE</p>
+      <h2 class="text-4xl font-black mt-3">More than food. It's a feeling.</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mt-6 leading-8">
+        At Maya, we believe good food makes ordinary moments special.
+        Our goal is to serve satisfying meals with flavour, care and
+        convenience, whether you're treating yourself or sharing with friends.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-8 mt-12">
+        <div class="bg-white rounded-2xl p-7">
+          <div class="text-4xl">🥗</div>
+          <h3 class="font-bold text-xl mt-4">Fresh Ingredients</h3>
+          <p class="text-gray-500 mt-2 text-sm">Freshness in every meal.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7">
+          <div class="text-4xl">👨‍🍳</div>
+          <h3 class="font-bold text-xl mt-4">Made with Care</h3>
+          <p class="text-gray-500 mt-2 text-sm">Food prepared with love.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-7">
+          <div class="text-4xl">🛵</div>
+          <h3 class="font-bold text-xl mt-4">Easy Ordering</h3>
+          <p class="text-gray-500 mt-2 text-sm">A simple way to order your meal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <p class="text-maya font-bold tracking-widest text-sm">LET'S CONNECT</p>
+      <h2 class="text-4xl font-black mt-3">Ready to eat?</h2>
+      <p class="text-gray-500 mt-4">Choose your meal and send your order to Maya.</p>
+      <button onclick="showCart()" class="mt-7 bg-maya text-white rounded-full px-8 py-4 font-bold hover:bg-orange-600">
+        Start Your Order →
+      </button>
+    </div>
+  </section>
+
+  <!-- CART MODAL -->
+  <div id="cart-modal" class="hidden fixed inset-0 z-[60] bg-black/50 p-4 items-center justify-center">
+    <div class="bg-white rounded-3xl p-6 md:p-8 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-black">Your Cart 🛒</h2>
+        <button onclick="closeCart()" class="text-2xl" aria-label="Close cart">×</button>
+      </div>
+      <div id="cart-items" class="mt-6 space-y-4"></div>
+      <p class="text-xl font-black mt-6">Total: <span id="cart-total">₦0</span></p>
+      <label class="block font-semibold mt-5" for="customer-name">Your name</label>
+      <input id="customer-name" class="border rounded-xl p-3 w-full mt-2" placeholder="Enter your name">
+      <label class="block font-semibold mt-4" for="customer-address">Delivery address</label>
+      <textarea id="customer-address" class="border rounded-xl p-3 w-full mt-2" placeholder="Enter your address"></textarea>
+      <button onclick="checkout()" class="w-full bg-green-600 text-white p-4 rounded-xl font-bold mt-5 hover:bg-green-700">
+        Order via WhatsApp
+      </button>
+      <p class="text-xs text-gray-500 mt-3">Delivery fees and payment will be confirmed with Maya.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white py-8 text-center px-5">
+    <a href="#" class="text-2xl font-black">MAYA<span class="text-maya">.</span></a>
+    <p class="text-gray-400 mt-3 text-sm">Fresh food. Happy moments.</p>
+    <p class="text-gray-500 text-xs mt-5">© <span id="year"></span> Maya. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Replace these sample details with your actual business details.
+    const WHATSAPP_NUMBER = "23407038833291";
+
+    const foods = [
+      {
+        id: 1, name: "Maya Jollof Rice", category: "Rice",
+        price: 3500, emoji: "🍚",
+        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80",
+        description: "Flavourful rice, rich spices and a delicious taste."
+      },
+      {
+        id: 2, name: "Crispy Chicken", category: "Fast Food",
+        price: 4500, emoji: "🍗",
+        image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80",
+        description: "Crispy golden chicken, full of flavour."
+      },
+      {
+        id: 3, name: "Classic Burger", category: "Fast Food",
+        price: 5000, emoji: "🍔",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80",
+        description: "A juicy burger with fresh toppings."
+      },
+      {
+        id: 4, name: "Grilled Suya", category: "Grills",
+        price: 4000, emoji: "🍢",
+        image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=700&q=80",
+        description: "Smoky grilled meat with bold spices."
+      },
+      {
+        id: 5, name: "Grilled Chicken", category: "Grills",
+        price: 5500, emoji: "🍗",
+        image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=80",
+        description: "Tender chicken, seasoned and grilled."
+      },
+      {
+        id: 6, name: "Fresh Juice", category: "Drinks",
+        price: 1500, emoji: "🥤",
+        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=700&q=80",
+        description: "A refreshing drink to complete your meal."
+      }
+    ];
+
+    const cart = {};
+
+    const money = amount => "₦" + amount.toLocaleString("en-NG");
+
+    function renderFoods(category = "All") {
+      const list = category === "All"
+        ? foods
+        : foods.filter(food => food.category === category);
+
+      document.getElementById("food-grid").innerHTML = list.map(food => `
+        <article class="food-card bg-white border border-orange-100 rounded-3xl overflow-hidden">
+          <img src="${food.image}" alt="${food.name}"
+            class="w-full h-52 object-cover" loading="lazy">
+          <div class="p-5">
+            <div class="flex justify-between items-start gap-2">
+              <h3 class="text-xl font-bold">${food.name}</h3>
+              <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">${food.category}</span>
+            </div>
+            <p class="text-gray-500 text-sm mt-3">${food.description}</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-xl font-black">${money(food.price)}</span>
+              <button onclick="addToCart(${food.id})"
+                class="bg-maya text-white px-4 py-2 rounded-full font-bold hover:bg-orange-600">
+                + Add
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function filterMenu(category) {
+      renderFoods(category);
+      document.querySelectorAll(".filter-btn").forEach(button => {
+        const active = button.textContent.trim() === category;
+        button.className = "filter-btn px-5 py-2 rounded-full " +
+          (active ? "bg-ink text-white" : "bg-gray-100 hover:bg-orange-100");
+      });
+    }
+
+    function addToCart(id) {
+      cart[id] = (cart[id] || 0) + 1;
+      updateCart();
+    }
+
+    function changeQuantity(id, amount) {
+      cart[id] = (cart[id] || 0) + amount;
+      if (cart[id] <= 0) delete cart[id];
+      updateCart();
+    }
+
+    function updateCart() {
+      const entries = foods.filter(food => cart[food.id]);
+      const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      const total = entries.reduce((sum, food) => sum + food.price * cart[food.id], 0);
+
+      document.getElementById("cart-count").textContent = count;
+      document.getElementById("cart-total").textContent = money(total);
+
+      document.getElementById("cart-items").innerHTML = entries.length
+        ? entries.map(food => `
+          <div class="flex justify-between items-center gap-3 border-b pb-3">
+            <div>
+              <p class="font-bold">${food.name}</p>
+              <p class="text-gray-500 text-sm">${money(food.price)} each</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="changeQuantity(${food.id},-1)" class="border rounded-lg w-8 h-8">−</button>
+              <span>${cart[food.id]}</span>
+              <button onclick="changeQuantity(${food.id},1)" class="border rounded-lg w-8 h-8">+</button>
+            </div>
+          </div>
+        `).join("")
+        : '<p class="text-gray-500">Your cart is empty. Add a meal to get started!</p>';
+    }
+
+    function showCart() {
+      const modal = document.getElementById("cart-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      updateCart();
+    }
+
+    function closeCart() {
+      const modal = document.getElementById("cart-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function checkout() {
+      const items = foods.filter(food => cart[food.id]);
+      if (!items.length) {
+        alert("Please add a meal to your cart first.");
+        return;
+      }
+
+      const name = document.getElementById("customer-name").value.trim();
+      const address = document.getElementById("customer-address").value.trim();
+
+      if (!name || !address) {
+        alert("Please enter your name and delivery address.");
+        return;
+      }
+
+      if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+        alert("Please configure the business WhatsApp number in the code.");
+        return;
+      }
+
+      const total = items.reduce((sum, food) => sum + food.price * cart[food.id], 0);
+      const lines = items.map(food =>
+        `${food.name} x ${cart[food.id]} = ${money(food.price * cart[food.id])}`
+      );
+
+      const message = [
+        "Hello Maya! I'd like to place an order.",
+        "",
+        ...lines,
+        "",
+        `Total: ${money(total)}`,
+        `Name: ${name}`,
+        `Delivery address: ${address}`,
+        "",
+        "Please confirm availability, delivery fee and payment details."
+      ].join("\n");
+
+      window.open(
+        "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message),
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderFoods();
+    updateCart();
+  </script>
+</body>
+</html>
+
+</body>
+</html>
